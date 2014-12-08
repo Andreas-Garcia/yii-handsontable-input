@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "neam\\yii_handsontable_widget\\": ""
+            "neam\\yii_handsontable_input\\": ""
         }
     },
     "require": {
