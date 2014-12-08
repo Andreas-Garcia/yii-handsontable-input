@@ -77,7 +77,6 @@ class HandsontableInput extends CInputWidget
         }
 
         $this->settings["data"] = $value;
-        $this->jsWidget = HandsontableWidget::begin(['settings' => $this->settings]);
 
         $script = "Handsontable.PluginHooks.add('afterChange', function() {
           if(this.getSettings().updateParentHandsontableInput) {
@@ -92,7 +91,7 @@ class HandsontableInput extends CInputWidget
 
     public function run()
     {
-        //HandsontableWidget::widget(['settings' => $this->settings]);
+        $this->jsWidget = HandsontableWidget::begin(['settings' => $this->settings]);
         $this->jsWidget->end();
         echo $this->renderInput();
     }
