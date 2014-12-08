@@ -13,6 +13,7 @@ use himiklab\handsontable\HandsontableWidget;
 
 /**
  * Handsontable grid input widget for Yii1.
+ * The input is a hidden input that stores the JSON-encoded string representation of the grid's data.
  *
  * Use in a Yii 1 app as follows:
  *
@@ -73,15 +74,15 @@ class HandsontableInput extends CInputWidget
             $value = $this->value;
         }
         if (empty($value)) {
-            $value = [];
+            $value = json_encode([]);
         }
 
-        $this->settings["data"] = $value;
+        $this->settings["data"] = json_decode($value);
 
         $script = "Handsontable.PluginHooks.add('afterChange', function() {
           if(this.getSettings().updateParentHandsontableInput) {
             var id = this.getSettings().updateParentHandsontableInput;
-            document.getElementById(id).value = this.getData();
+            document.getElementById(id).value = JSON.stringify(this.getData());
           }
         });";
         $clientScript = Yii::app()->getClientScript();
