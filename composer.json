@@ -1,0 +1,27 @@
+{
+    "name": "neam/yii-handsontable-input",
+    "description": "Handsontable grid input widget for Yii 1 apps",
+    "keywords": ["yii"],
+    "homepage": "https://github.com/neam/yii-handsontable-input",
+    "type": "yii-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Fredrik Wollsén",
+            "email": "fredrik@neam.se"
+        }
+    ],
+    "repositories": [
+    ],
+    "autoload": {
+        "psr-4": {
+            "neam\\yii_handsontable_widget\\": ""
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "himiklab/yii2-handsontable-widget": "~1.0.1",
+        "neam/yii-yii2-bridge": "*@dev",
+        "yiisoft/yii": ">=1.1.0"
+    }
+}
