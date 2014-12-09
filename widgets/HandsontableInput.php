@@ -82,7 +82,11 @@ class HandsontableInput extends CInputWidget
         $script = "Handsontable.PluginHooks.add('afterChange', function() {
           if(this.getSettings().updateParentHandsontableInput) {
             var id = this.getSettings().updateParentHandsontableInput;
-            document.getElementById(id).value = JSON.stringify(this.getData());
+            var dataObj = {
+                dataSchema: this.getSettings().dataSchema,
+                data: this.getData()
+            };
+            document.getElementById(id).value = JSON.stringify(dataObj);
           }
         });";
         $clientScript = Yii::app()->getClientScript();
