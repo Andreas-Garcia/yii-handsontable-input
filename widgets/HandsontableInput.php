@@ -69,15 +69,15 @@ class HandsontableInput extends CInputWidget
         ]);
 
         if ($this->hasModel()) {
-            $value = $this->model->{$this->attribute};
+            $dataJson = $this->model->{$this->attribute};
         } else {
-            $value = $this->value;
+            $dataJson = $this->value;
         }
-        if (empty($value)) {
-            $value = json_encode([]);
+        if (empty($dataJson)) {
+            $dataJson = json_encode([]);
         }
 
-        $this->settings["data"] = json_decode($value);
+        $this->populateSettings($dataJson);
 
         $script = "Handsontable.PluginHooks.add('afterChange', function() {
           if(this.getSettings().updateParentHandsontableInput) {
@@ -88,6 +88,10 @@ class HandsontableInput extends CInputWidget
         $clientScript = Yii::app()->getClientScript();
         $clientScript->registerScript(uniqid(), $script, CClientScript::POS_READY);
 
+    }
+
+    public function populateSettings($dataJson) {
+        $this->settings["data"] = json_decode($dataJson);
     }
 
     public function run()
