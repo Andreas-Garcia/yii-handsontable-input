@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "himiklab/yii2-handsontable-widget": "~1.0.1",
+        "himiklab/yii2-handsontable-widget": "=1.0.1",
         "neam/yii-yii2-bridge": "*@dev",
         "yiisoft/yii": ">=1.1.0"
     }
